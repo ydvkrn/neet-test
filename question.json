@@ -1,5 +1,16 @@
 [
     {
+        "question": "Choose Correct Fertilization Process?",
+        "options": [
+            "Internal Fertilization",
+            "External Fertilization",
+            "Gamete Transfer",
+            "All of the above"
+        ],
+        "correct": "b",
+        "image": "https://i.postimg.cc/BngRfL0g/image.jpg"
+    },
+    {
         "question": "चित्र में दिखाए गए कोशिका विभाजन के चरण की पहचान करें।",
         "options": [
             "प्रोफेज",
