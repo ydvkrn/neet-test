@@ -1,0 +1,24 @@
+name: Convert Text to JSON
+on:
+  push:
+    paths:
+      - 'questions.txt'
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Run Python script
+        run: python convert_to_json.py
+      - name: Commit updated JSON
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add question.json
+          git commit -m "Update question.json with new questions"
+          git push
