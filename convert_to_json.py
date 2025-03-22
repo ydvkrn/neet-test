@@ -1,4 +1,4 @@
-with open("https://www16.pdf2go.com/v2/dl/web7/download-file/3ed2b385-9376-4ded-a647-23703cc1b46b/1738146962php2vT7qV.txt", "r") as file:
+with open("question.txt", "r") as file:
     text = file.read()
 
 questions_list = text.strip().split("\n\n")
