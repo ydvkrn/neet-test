@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Mock Test - Papa ji ka Test</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #00796b;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .question {
+            background: #ffffff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .question:hover {
+            transform: translateY(-5px);
+        }
+        .question p {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 0 0 10px;
+            color: #004d40;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .options label {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            font-family: 'Roboto', sans-serif; /* Options ka font change */
+            font-weight: 700; /* Bold kiya */
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .options label:hover {
+            background: #e0f2f1;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 12px 30px;
+            background: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #004d40;
+        }
+        /* Score Page Styling */
+        #score-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0288d1, #4fc3f7);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .score-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        .score-circle {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background: url('https://i.ibb.co/5vYvYvY/score-bg.png') no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .score-circle p {
+            font-family: 'Montserrat', sans-serif; /* Score ka font change */
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #000000; /* Black color */
+            transform: rotate(-20deg); /* Rotate kiya */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .report {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .report h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .report-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        .correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .incorrect {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+        .unanswered {
+            background: #f5f5f5;
+            color: #616161;
+        }
+        .view-solution {
+            padding: 10px 20px;
+            background: #0288d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .view-solution:hover {
+            background: #01579b;
+        }
+        /* Solution Page Styling */
+        #solution-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .solution-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .solution-question {
+            background: #ffffff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .solution-question p {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 0 0 10px;
+            color: #004d40;
+        }
+        .solution-options label {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct-answer {
+            background: #e8f5e9;
+            color: #2e7d32; /* Green color for correct answer */
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>NEET Mock Test - Papa ji ke liye</h1>
+        <div id="quiz"></div>
+        <button onclick="checkScore()">Submit Kar, Papa ji!</button>
+    </div>
+
+    <div id="score-page">
+        <div class="score-card">
+            <div class="score-circle">
+                <p id="score-display">0/720</p>
+            </div>
+            <div class="report">
+                <h3>Questions Report</h3>
+                <p id="percentage">You've answered 0% ques correctly</p>
+                <div class="report-item correct">
+                    <span>Correct Ques</span>
+                    <span id="correct-count">0</span>
+                </div>
+                <div class="report-item incorrect">
+                    <span>Incorrect Ques</span>
+                    <span id="incorrect-count">0</span>
+                </div>
+                <div class="report-item unanswered">
+                    <span>Unanswered Ques</span>
+                    <span id="unanswered-count">0</span>
+                </div>
+            </div>
+            <button class="view-solution" onclick="showSolutions()">View test solution</button>
+        </div>
+    </div>
+
+    <div id="solution-page">
+        <div class="solution-container">
+            <h1>Solutions - Papa ji ke liye</h1>
+            <div id="solutions"></div>
+            <button onclick="closeSolutions()">Wapas Jao</button>
+        </div>
+    </div>
+
+    <script>
+        let questions = [];
+        let userAnswers = [];
+
+        // GitHub se JSON load karna
+        fetch('https://raw.githubusercontent.com/ydvkrn/neet-test/refs/heads/main/question.json')
+            .then(response => response.json())
+            .then(data => {
+                questions = data;
+                loadQuestions();
+            })
+            .catch(error => console.log("Error loading JSON, Papa ji!", error));
+
+        function loadQuestions() {
+            const quizDiv = document.getElementById("quiz");
+            quizDiv.innerHTML = ""; // Clear previous content
+
+            questions.forEach((q, index) => {
+                let questionHTML = `
+                    <div class="question">
+                        <p>${index + 1}. ${q.question}</p>
+                        <div class="options">
+                            <label><input type="radio" name="q${index}" value="a"> ${q.options[0]}</label>
+                            <label><input type="radio" name="q${index}" value="b"> ${q.options[1]}</label>
+                            <label><input type="radio" name="q${index}" value="c"> ${q.options[2]}</label>
+                            <label><input type="radio" name="q${index}" value="d"> ${q.options[3]}</label>
+                        </div>
+                `;
+
+                if (q.image) {
+                    questionHTML += `<img src="${q.image}" alt="Diagram">`;
+                }
+
+                questionHTML += `</div>`;
+                quizDiv.innerHTML += questionHTML;
+            });
+        }
+
+        function checkScore() {
+            let score = 0;
+            let correct = 0;
+            let incorrect = 0;
+            let unanswered = 0;
+            userAnswers = [];
+
+            questions.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selected) {
+                    userAnswers.push(selected.value);
+                    if (selected.value === q.correct) {
+                        score += 4; // NEET scoring: +4 for correct
+                        correct++;
+                    } else {
+                        score -= 1; // -1 for wrong
+                        incorrect++;
+                    }
+                } else {
+                    userAnswers.push(null);
+                    unanswered++;
+                }
+            });
+
+            const totalQuestions = questions.length;
+            const percentage = (correct / totalQuestions) * 100;
+
+            // Update score page
+            document.getElementById("score-display").innerHTML = `${score}/${totalQuestions * 4}`;
+            document.getElementById("percentage").innerHTML = `You've answered ${percentage.toFixed(0)}% ques correctly`;
+            document.getElementById("correct-count").innerHTML = `${correct} <span style="color: #2e7d32;">+${correct * 4} marks</span>`;
+            document.getElementById("incorrect-count").innerHTML = `${incorrect} <span style="color: #d32f2f;">-${incorrect} marks</span>`;
+            document.getElementById("unanswered-count").innerHTML = unanswered;
+
+            const scorePage = document.getElementById("score-page");
+            scorePage.style.display = "flex"; // Show score page
+            document.querySelector(".quiz-container").style.display = "none"; // Hide quiz
+        }
+
+        function showSolutions() {
+            const solutionDiv = document.getElementById("solutions");
+            solutionDiv.innerHTML = ""; // Clear previous content
+
+            questions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                let solutionHTML = `
+                    <div class="solution-question">
+                        <p>${index + 1}. ${q.question}</p>
+                        <div class="solution-options">
+                            <label class="${q.correct === 'a' ? 'correct-answer' : ''}">${q.options[0]}</label>
+                            <label class="${q.correct === 'b' ? 'correct-answer' : ''}">${q.options[1]}</label>
+                            <label class="${q.correct === 'c' ? 'correct-answer' : ''}">${q.options[2]}</label>
+                            <label class="${q.correct === 'c' ? 'correct-answer' : ''}">${q.options[3]}</label>
+                        </div>
+                `;
+
+                if (q.image) {
+                    solutionHTML += `<img src="${q.image}" alt="Diagram">`;
+                }
+
+                solutionHTML += `</div>`;
+                solutionDiv.innerHTML += solutionHTML;
+            });
+
+            document.getElementById("score-page").style.display = "none";
+            document.getElementById("solution-page").style.display = "block";
+        }
+
+        function closeSolutions() {
+            document.getElementById("solution-page").style.display = "none";
+            document.querySelector(".quiz-container").style.display = "block";
+            loadQuestions(); // Reset quiz
+        }
+    </script>
+</body>
+</html>
