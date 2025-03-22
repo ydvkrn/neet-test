@@ -1,0 +1,14 @@
+[
+    {
+        "question": "Which gas is known as laughing gas?",
+        "options": ["Oxygen", "Nitrous Oxide", "Carbon Dioxide", "Hydrogen"],
+        "correct": "b",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Nitrous-oxide-dimensions-3D-balls.png"
+    },
+    {
+        "question": "Identify the part of the cell in the diagram.",
+        "options": ["Nucleus", "Mitochondria", "Ribosome", "Golgi Body"],
+        "correct": "b",
+        "image": null
+    }
+]
