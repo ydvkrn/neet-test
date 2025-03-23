@@ -64,5 +64,115 @@
         ],
         "correct": "b",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Animal_mitochondrion_diagram_en.svg/1200px-Animal_mitochondrion_diagram_en.svg.png"
+    },
+     {
+        "question": "What is the SI unit of electric current? / विद्युत धारा की SI इकाई क्या है?",
+        "options": [
+            "Volt / वोल्ट",
+            "Ampere / एम्पीयर",
+            "Ohm / ओम",
+            "Watt / वाट"
+        ],
+        "correct": "b",
+        "image": null
+    },
+    {
+        "question": "Which of the following is a noble gas? / निम्नलिखित में से कौन सी एक नोबल गैस है?",
+        "options": [
+            "Oxygen / ऑक्सीजन",
+            "Nitrogen / नाइट्रोजन",
+            "Helium / हीलियम",
+            "Hydrogen / हाइड्रोजन"
+        ],
+        "correct": "c",
+        "image": null
+    },
+    {
+        "question": "What is the primary source of energy for Earth's climate system? / पृथ्वी की जलवायु प्रणाली के लिए ऊर्जा का प्राथमिक स्रोत क्या है?",
+        "options": [
+            "Sun / सूर्य",
+            "Moon / चंद्रमा",
+            "Earth's core / पृथ्वी का केंद्र",
+            "Wind / हवा"
+        ],
+        "correct": "a",
+        "image": null
+    },
+    {
+        "question": "Which acid is present in lemon? / नींबू में कौन सा अम्ल मौजूद होता है?",
+        "options": [
+            "Acetic acid / एसिटिक अम्ल",
+            "Citric acid / साइट्रिक अम्ल",
+            "Sulfuric acid / सल्फ्यूरिक अम्ल",
+            "Hydrochloric acid / हाइड्रोक्लोरिक अम्ल"
+        ],
+        "correct": "b",
+        "image": null
+    },
+    {
+        "question": "What is the powerhouse of the cell? / कोशिका का पावरहाउस क्या है?",
+        "options": [
+            "Nucleus / नाभिक",
+            "Mitochondria / माइटोकॉन्ड्रिया",
+            "Ribosome / राइबोसोम",
+            "Golgi Apparatus / गॉल्जी उपकरण"
+        ],
+        "correct": "b",
+        "image": null
+    },
+    {
+        "question": "What is the chemical formula of water? / पानी का रासायनिक सूत्र क्या है?",
+        "options": [
+            "H2O",
+            "CO2",
+            "O2",
+            "N2"
+        ],
+        "correct": "a",
+        "image": null
+    },
+    {
+        "question": "Which planet is known as the Red Planet? / कौन सा ग्रह लाल ग्रह के नाम से जाना जाता है?",
+        "options": [
+            "Venus / शुक्र",
+            "Mars / मंगल",
+            "Jupiter / बृहस्पति",
+            "Saturn / शनि"
+        ],
+        "correct": "b",
+        "image": null
+    },
+    {
+        "question": "What is the speed of light in vacuum? / निर्वात में प्रकाश की गति क्या है?",
+        "options": [
+            "3 x 10^5 m/s",
+            "3 x 10^8 m/s",
+            "3 x 10^10 m/s",
+            "3 x 10^3 m/s"
+        ],
+        "correct": "b",
+        "image": null
+    },
+    {
+        "question": "Which gas is most abundant in Earth's atmosphere? / पृथ्वी के वायुमंडल में सबसे प्रचुर गैस कौन सी है?",
+        "options": [
+            "Oxygen / ऑक्सीजन",
+            "Nitrogen / नाइट्रोजन",
+            "Carbon Dioxide / कार्बन डाइऑक्साइड",
+            "Argon / आर्गन"
+        ],
+        "correct": "b",
+        "image": null
+    },
+    {
+        "question": "What is the process by which plants make their food? / पौधे अपने भोजन को बनाने की प्रक्रिया को क्या कहते हैं?",
+        "options": [
+            "Respiration / श्वसन",
+            "Photosynthesis / प्रकाश संश्लेषण",
+            "Transpiration / वाष्पोत्सर्जन",
+            "Digestion / पाचन"
+        ],
+        "correct": "b",
+        "image": null
     }
 ]
